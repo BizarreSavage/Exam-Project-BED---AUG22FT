@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const Order = sequelize.define('Order', {
       userId: DataTypes.INTEGER,
-      status: DataTypes.STRING
+      status: DataTypes.STRING,
+      total: DataTypes.DECIMAL
     }, {});
   
     Order.associate = function(models) {

@@ -14,7 +14,7 @@ router.delete('/:id', onlyAdmin, async (req, res, next) => {
     if (!user) {
       return res.status(404).send('User not found');
     }
-    res.status(200).send('User deleted');
+    res.status(200).json({ message:'User deleted'});
   } catch (error) {
     res.status(500).send('Error deleting user');
   }

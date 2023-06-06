@@ -32,7 +32,7 @@ router.post('/', userAndAdmin, async (req, res) => {
   }
 });
   
-  // Update quantity of a specific item in the user's cart
+  // Update quantity of an item in the cart
   router.put('/:id', userAndAdmin, async (req, res) => {
     const { quantity } = req.body;
     try {
@@ -57,7 +57,7 @@ router.post('/', userAndAdmin, async (req, res) => {
     }
   });
   
-  // Delete an item from the user's cart
+  // Delete an item from the cart
   router.delete('/:id', userAndAdmin, async (req, res) => {
     try {
       const cartItem = await CartItem.findOne({

@@ -1,29 +1,37 @@
 const jwt = require('jsonwebtoken');
 const { User } = require('../models');
 
-async function onlyAdmin(req, res, next) {
+async function userAndAdmin(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
-  
-  if (token == null) return res.sendStatus(401); // If there's no token, return 401
-  
-  jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
-    if (err) return res.sendStatus(403); // If the token is not valid, return 403
+
+  if (token == null) {
+    req.user = null; // Set user as null if no token
+    return next(); 
+  }
+
+  try {
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+    const { username } = decodedToken;
     
     const dbUser = await User.findOne({
-      where: {
-        username: user.username
-      },
-      include: 'role'
+      where: { username },
+      include: ['role', 'cart']
     });
-    
-    if (dbUser.role.name !== 'Admin') {
-      return res.status(403).json({ message: 'Only admin has access to this page' });
-    }
-    
-    req.user = dbUser;
-    next(); // User is admin, proceed to the next middleware or route handler
-  });
+
+    if (!dbUser) return res.sendStatus(403);
+
+    req.user = {
+      id: dbUser.id,
+      username: dbUser.username,
+      roleId: dbUser.role.id, 
+      cart: dbUser.cart 
+    };
+
+    next();
+  } catch (error) {
+    return res.sendStatus(403);
+  }
 }
 
-module.exports = onlyAdmin;
+module.exports = userAndAdmin;

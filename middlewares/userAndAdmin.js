@@ -5,7 +5,10 @@ async function userAndAdmin(req, res, next) {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
 
-  if (token == null) return res.sendStatus(401);
+  if (token == null) {
+    req.user = null; 
+    return next(); 
+  }
 
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
@@ -13,7 +16,8 @@ async function userAndAdmin(req, res, next) {
     
     const dbUser = await User.findOne({
       where: { username },
-      include: ['role', 'cart']
+      include: ['role', 'cart'],
+      attributes: ['id', 'username', 'email']
     });
 
     if (!dbUser) return res.sendStatus(403);
@@ -21,8 +25,9 @@ async function userAndAdmin(req, res, next) {
     req.user = {
       id: dbUser.id,
       username: dbUser.username,
-      roleId: dbUser.role.id, // Include the roleId for reference
-      cart: dbUser.cart // Include the cart for reference
+      email: dbUser.email,
+      roleId: dbUser.role.id, 
+      cart: dbUser.cart 
     };
 
     next();
