@@ -12,7 +12,7 @@ This is the backend of a stock-control and sales system. It's built using Expres
 - Every new user gets an cart of wich they can add items to
 - Users can order items from the cart if there is enough items in stock
 - Users can see all their orders and status of their order
-- Admin can edit the status of an users order `json ['In process', 'Complete', 'Cancelled']`
+- Admin can edit the status of an users order ['In process', 'Complete', 'Cancelled']
 - Admin can see all orders and carts
 - Anyone can use the search function to search for item names, item sku, category etc
 
