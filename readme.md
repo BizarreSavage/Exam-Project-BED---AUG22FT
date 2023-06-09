@@ -26,13 +26,17 @@
 1. Open a terminal in the root directory of your project.
 2. Run the following command to install the project dependencies:
 
-`npm install`
+```bash
+npm install
+```
 
 # Running the Application
 
 1. After the installation is complete, run the following command to start the application:
 
-`npm start`
+```bash
+npm start
+```
 
 2. The application will be running at `http://localhost:3000` by default.
 
