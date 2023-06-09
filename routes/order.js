@@ -69,7 +69,7 @@ router.post('/:id', userAndAdmin, async (req, res) => {
 
     const order = await Order.create({
       userId: req.user.id,
-      status: 'In Process',
+      status: status || 'In Process',
       total: discountedPrice, 
     });
 
@@ -101,6 +101,11 @@ router.put('/:id', onlyAdmin, async (req, res) => {
     const order = await Order.findByPk(id);
     if (!order) {
       return res.status(400).json({ message: 'Order not found' });
+    }
+
+    const orderStatus = ['In Process', 'Complete', 'Cancelled'];
+    if (!orderStatus.includes(status)) {
+      return res.status(400).json({ message: 'Invalid order status' });
     }
 
     order.status = status;

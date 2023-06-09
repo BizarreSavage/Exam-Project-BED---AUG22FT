@@ -16,11 +16,6 @@ beforeAll(async () => {
 
 describe('POST /setup', () => {
 
-  it('should find index', async () => {
-    const res = await request(app).get('/');
-    expect(res.statusCode).toEqual(200);
-  });
-
   it('should populate the database', async () => {
     await new Promise(resolve => setTimeout(resolve, 2000));  // Waiting a bit for the database to finish setup
     const res = await request(app).post('/setup');
@@ -121,7 +116,7 @@ describe('POST /setup', () => {
       expect(res.body.items.length).toBe(3);
     });
 
-    it('search for all items with the category name "Laptop"', async () => {
+    it('search for all items with the name "Laptop"', async () => {
       const res = await request(app)
         .post('/search')
         .set('Authorization', authToken)

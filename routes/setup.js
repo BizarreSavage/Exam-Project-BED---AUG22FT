@@ -21,6 +21,12 @@ router.post('/', async (req, res) => {
     const adminRole = await Role.create({ name: 'Admin' });
     const userRole = await Role.create({ name: 'User' });
 
+    // Check if admin user already exists
+    const adminUser = await User.findOne({ where: { roleId: adminRole.id } });
+    if (adminUser) {
+      return res.status(400).json({ error: 'Admin user already exists.' });
+    }
+
     // Create admin user
     const hashedPassword = await bcrypt.hash('P@ssword2023', 10);
     await User.create({ username: 'Admin', password: hashedPassword, email: 'admin@godmode.com', roleId: adminRole.id, firstname: 'admin', lastname: 'admin'});

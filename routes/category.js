@@ -7,6 +7,11 @@ const onlyAdmin = require('../middlewares/onlyAdmin');
 router.post('/', onlyAdmin, async (req, res) => {
   const { name } = req.body;
   try {
+    const existingCategory = await Category.findOne({ where: { name } });
+    if (existingCategory) {
+      return res.status(400).json({ error: 'Category with the same name already exists' });
+    }
+    
     const category = await Category.create({ name });
     return res.json(category);
   } catch (err) {

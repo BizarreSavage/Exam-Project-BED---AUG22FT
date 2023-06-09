@@ -6,6 +6,11 @@ const userAndAdmin = require('../middlewares/userAndAdmin');
 
 // Add item to the user's cart
 router.post('/', userAndAdmin, async (req, res) => {
+
+  if (!req.user || !req.user.cart) {
+    return res.status(401).json({ message: 'You need to be logged in to add items to your cart' });
+  }
+
   const { itemId, quantity } = req.body;
 
   try {
@@ -34,6 +39,11 @@ router.post('/', userAndAdmin, async (req, res) => {
   
   // Update quantity of an item in the cart
   router.put('/:id', userAndAdmin, async (req, res) => {
+
+    if (!req.user || !req.user.cart) {
+      return res.status(401).json({ message: 'You need to be logged in to do this' });
+    }
+
     const { quantity } = req.body;
     try {
       const cartItem = await CartItem.findOne({
@@ -59,9 +69,14 @@ router.post('/', userAndAdmin, async (req, res) => {
   
   // Delete an item from the cart
   router.delete('/:id', userAndAdmin, async (req, res) => {
+
+    if (!req.user || !req.user.cart) {
+      return res.status(401).json({ message: 'You need to be logged in to do this' });
+    }
+
     try {
       const cartItem = await CartItem.findOne({
-        where: { id: req.params.id, cartId: req.user.cart.id },
+        where: { itemId: req.params.id, cartId: req.user.cart.id },
       });
       if (!cartItem) {
         return res.status(400).json({ message: 'Cart item not found' });

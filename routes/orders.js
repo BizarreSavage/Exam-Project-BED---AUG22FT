@@ -4,6 +4,11 @@ const { Order, OrderItem, Item, User } = require('../models');
 const userAndAdmin = require('../middlewares/userAndAdmin');
 
 router.get('/', userAndAdmin, async (req, res) => {
+
+  if (!req.user || !req.user.id) {
+    return res.status(400).json({ error: 'You must be logged in to see orders' });
+  }
+
   const { id, roleId } = req.user;
 
   // If the user is an admin, get all orders.
