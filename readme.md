@@ -16,7 +16,7 @@ This is the backend of a stock-control and sales system. It's built using Expres
 - Admin can see all orders and carts
 - Anyone can use the search function to search for item names, item sku, category etc
 
-## Unit testing
+# Unit testing
 
 1. There is provided an test, that can be run with the command `npm test`, keep in mind that this test must be run on an empty/unpopulated database.
 
@@ -45,14 +45,6 @@ This is the backend of a stock-control and sales system. It's built using Expres
    - `ADMIN_PASSWORD`: The password for accessing the MySQL database.
    - `DIALECT`: "mysql"
    - `JWT_SECRET`: JWT Secret.
-
-   HOST = "localhost"
-   ADMIN_USERNAME = "root"
-   ADMIN_PASSWORD = "neiseida"
-   DATABASE_NAME = "StockSalesDB"
-   DIALECT = "mysql"
-   PORT = "3000"
-   JWT_SECRET=your-secret
 
 # Installing Dependencies
 
