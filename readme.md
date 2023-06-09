@@ -20,43 +20,43 @@ This is the backend of a stock-control and sales system. It's built using Expres
 
 ### Authentication Endpoints
 
-`POST /login`: Used for user login. Returns a JWT token for valid logins.
-`POST /signup`: Used for user registration.
+- `POST /login`: Used for user login. Returns a JWT token for valid logins.
+- `POST /signup`: Used for user registration.
 
 ### Items Endpoints
 
-`GET /items`: Returns all items in the database, including their categories.
-`POST /item`: Adds a new item to the database (admin access required).
-`PUT /item/:id`: Updates an existing item in the database (admin access required).
-`DELETE /item/:id`: Deletes an item from the database (admin access required).
+- `GET /items`: Returns all items in the database, including their categories.
+- `POST /item`: Adds a new item to the database (admin access required).
+- `PUT /item/:id`: Updates an existing item in the database (admin access required).
+- `DELETE /item/:id`: Deletes an item from the database (admin access required).
 
 ### Category Endpoints
 
-`GET /categories`: Returns all categories in the database.
-`POST /category`: Adds a new category to the database (admin access required).
-`PUT /category/:id`: Updates the name of a category (admin access required).
-`DELETE /category/:id`: Deletes a category from the database (admin access required).
+- `GET /categories`: Returns all categories in the database.
+- `POST /category`: Adds a new category to the database (admin access required).
+- `PUT /category/:id`: Updates the name of a category (admin access required).
+- `DELETE /category/:id`: Deletes a category from the database (admin access required).
 
 ### Cart Endpoints
 
-`GET /cart`: Returns the cart for the logged-in user.
-`GET /allcarts`: Returns all carts, including items and user information (admin access required).
-`POST /cart_item`: Adds an item to the user's cart.
-`PUT /cart_item/:id`: Updates the quantity of an item in the user's cart.
-`DELETE /cart_item/:id`: Deletes an item from the user's cart.
-`DELETE /cart/:id`: Deletes all items from the user's cart.
+- `GET /cart`: Returns the cart for the logged-in user.
+- `GET /allcarts`: Returns all carts, including items and user information (admin access required).
+- `POST /cart_item`: Adds an item to the user's cart.
+- `PUT /cart_item/:id`: Updates the quantity of an item in the user's cart.
+- `DELETE /cart_item/:id`: Deletes an item from the user's cart.
+- `DELETE /cart/:id`: Deletes all items from the user's cart.
 
 ### Orders Endpoint
 
-`GET /orders`: Returns the orders for the logged-in user, and returns all orders for admin.
-`GET /allorders`: Returns all orders, including items and user information (admin access required).
-`POST /order/:id`: Adds an item from the user's cart to an order.
-`PUT /order/:id`: Updates the status of an order (admin access required).
+- `GET /orders`: Returns the orders for the logged-in user, and returns all orders for admin.
+- `GET /allorders`: Returns all orders, including items and user information (admin access required).
+- `POST /order/:id`: Adds an item from the user's cart to an order.
+- `PUT /order/:id`: Updates the status of an order (admin access required).
 
 ### Utility Endpoints
 
-`POST /setup`: Populates the database with initial data if no records exist, this data is fetched from an API, it also creates the admin user.
-`POST /search`: Searches for items or categories in the database, can also search with partial names.
+- `POST /setup`: Populates the database with initial data if no records exist, this data is fetched from an API, it also creates the admin user.
+- `POST /search`: Searches for items or categories in the database, can also search with partial names.
 
 # Unit testing
 
