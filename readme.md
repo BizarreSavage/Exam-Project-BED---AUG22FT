@@ -1,3 +1,25 @@
+# Stock-control and Sales system
+
+This is the backend of a stock-control and sales system. It's built using Express.js and MySQL for data storage. The system is ready for an UI with some Frontend work.
+
+## Features
+
+- Populate the database from API
+- Create one (1) admin user
+- Create users - up to 4 with the same email address
+- A discount is generated if 2 or more have the same email address (2 users - 10%, 3 users - 30%, 4 users - 40%)
+- Login authenticated with JWT token
+- Every new user gets an cart of wich they can add items to
+- Users can order items from the cart if there is enough items in stock
+- Users can see all their orders and status of their order
+- Admin can edit the status of an users order ['In process', 'Complete', 'Cancelled']
+- Admin can see all orders and carts
+- Anyone can use the search function to search for item names, item sku, category etc
+
+## Unit testing
+
+1. There is provided an test, that can be run with the command `npm test`, keep in mind that this test must be run on an empty/unpopulated database.
+
 # Installation
 
 1. Clone the repository or download the source code.
@@ -15,11 +37,22 @@
 # Configuration
 
 1. Open the `.env` file and update the following configuration variables according to your setup:
-   - `DB_HOST`: The host name of your MySQL database server.
-   - `DB_PORT`: The port number of your MySQL database server.
-   - `DB_DATABASE`: The name of the MySQL database you created for your project.
-   - `DB_USERNAME`: The username for accessing the MySQL database.
-   - `DB_PASSWORD`: The password for accessing the MySQL database.
+
+   - `HOST`: The host name of your MySQL database server.
+   - `PORT`: The port number of your MySQL database server.
+   - `DATABASE_NAME`: The name of the MySQL database you created for your project.
+   - `ADMIN_USERNAME`: The username for accessing the MySQL database.
+   - `ADMIN_PASSWORD`: The password for accessing the MySQL database.
+   - `DIALECT`: "mysql"
+   - `JWT_SECRET`: JWT Secret.
+
+   HOST = "localhost"
+   ADMIN_USERNAME = "root"
+   ADMIN_PASSWORD = "neiseida"
+   DATABASE_NAME = "StockSalesDB"
+   DIALECT = "mysql"
+   PORT = "3000"
+   JWT_SECRET=your-secret
 
 # Installing Dependencies
 
