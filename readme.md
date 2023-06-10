@@ -80,7 +80,7 @@ This is the backend of a stock-control and sales system. It's built using Expres
 
 1. Open the `.env` file and update the following configuration variables according to your setup:
 
-```json
+```javascript
    - `HOST`= `"localhost"` //The host name of your MySQL database server.
    - `PORT`= `"3000"` //The port number of your MySQL database server.
    - `DATABASE_NAME`= `"StockSalesDB"` //The name of the MySQL database you created for your project.
