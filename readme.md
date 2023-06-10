@@ -80,13 +80,13 @@ This is the backend of a stock-control and sales system. It's built using Expres
 
 1. Open the `.env` file and update the following configuration variables according to your setup:
 
-   - `HOST`: The host name of your MySQL database server.
-   - `PORT`: The port number of your MySQL database server.
-   - `DATABASE_NAME`: The name of the MySQL database you created for your project.
-   - `ADMIN_USERNAME`: The username for accessing the MySQL database.
-   - `ADMIN_PASSWORD`: The password for accessing the MySQL database.
-   - `DIALECT`: "mysql"
-   - `JWT_SECRET`: JWT Secret.
+   - `HOST`:`localhost` //The host name of your MySQL database server.
+   - `PORT`:`3000` //The port number of your MySQL database server.
+   - `DATABASE_NAME`:`StockSalesDB` //The name of the MySQL database you created for your project.
+   - `ADMIN_USERNAME`:`root` //The username for accessing the MySQL database.
+   - `ADMIN_PASSWORD`: `neiseida` //The password for accessing the MySQL database.
+   - `DIALECT`: `"mysql"`
+   - `JWT_SECRET`: `your-secret`
 
 # Installing Dependencies
 
@@ -130,4 +130,4 @@ Congratulations! You have successfully installed and started the back end of you
 
 ## License
 
-This project is licensed under the MIT LicenseLICENSE.
+This project is licensed under the MIT License.
