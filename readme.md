@@ -125,7 +125,8 @@ npm start
 
 2. The application will be running at `http://localhost:3000` by default.
 
-3. Use "Postman" or some other tool to send a `post` request to `/setup` to populate the database and create the admin user.(If you ran `npm test` first, then database is already populated.)
+3. Use "Postman" or some other tool to send a `post` request to `/setup` to populate the database, this will also create the admin user.
+   (If you ran `npm test` first, then database is already populated.)
 
 Congratulations! You have successfully installed and started the back end of your project.
 
