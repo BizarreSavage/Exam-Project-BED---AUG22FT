@@ -1,6 +1,6 @@
 # Stock-control and Sales system
 
-This is the backend of a stock-control and sales system. It's built using Express.js and MySQL for data storage. The system is ready for an UI with some Frontend work.
+This is the backend of a stock-control and sales system, here you can browse items in a catalogue, add them to your cart and order them. The program is complete with admin control and user registration. It's built using Express.js and MySQL for data storage. The system is ready for an UI with some Frontend work.
 
 ## Features
 
@@ -61,6 +61,12 @@ This is the backend of a stock-control and sales system. It's built using Expres
 # Unit testing
 
 1. There is provided an test, that can be run with the command `npm test`, keep in mind that this test must be run on an empty/unpopulated database.
+
+- During the final days of the exam our test task was changed, but they allowed us to keep our old tests so the tests provided here will test admin endpoints with an admin user. See here:
+
+```
+As instructions were updated once the EP had already begun, Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
+```
 
 # Installation
 
@@ -129,6 +135,10 @@ Congratulations! You have successfully installed and started the back end of you
 - sequelize: ^6.31.1
 - sequelize-cli: ^6.6.0
 - supertest: ^6.3.3
+
+## Collaboration
+
+I signed up for a mentor group with Hans Christian Gustafsson, we spoke alot about how to interpret the task. However, we never helped each other with any code, only with understanding the exam task text.
 
 ## License
 
