@@ -65,7 +65,8 @@ This is the backend of a stock-control and sales system, here you can browse ite
 - During the final days of the exam our test task was changed, but they allowed us to keep our old tests so the tests provided here will test admin endpoints with an admin user. See here:
 
 ```
-As instructions were updated once the EP had already begun, Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
+As instructions were updated once the EP had already begun,
+Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
 ```
 
 # Installation
