@@ -10,13 +10,16 @@ router.get('/', function(req, res, next) {
 
 router.delete('/:id', onlyAdmin, async (req, res, next) => {
   try {
+    if (req.user.id == req.params.id) {
+      return res.status(403).send( {message:'You cannot delete yourself'});
+    }
     const user = await User.destroy({ where: { id: req.params.id } });
     if (!user) {
-      return res.status(404).send('User not found');
+      return res.status(404).send({ message:'User not found'});
     }
     res.status(200).json({ message:'User deleted'});
   } catch (error) {
-    res.status(500).send('Error deleting user');
+    res.status(500).send( {message:'Error deleting user'});
   }
 });
 
