@@ -58,17 +58,6 @@ This is the backend of a stock-control and sales system, here you can browse ite
 - `POST /setup`: Populates the database with initial data if no records exist, this data is fetched from an API, it also creates the admin user.
 - `POST /search`: Searches for items or categories in the database, can also search with partial names.
 
-# Unit testing
-
-1. There is provided an test, that can be run with the command `npm test`, keep in mind that this test must be run on an empty/unpopulated database.
-
-- During the final days of the exam our test task was changed, but they allowed us to keep our old tests so the tests provided here will test admin endpoints with an admin user. See here:
-
-```
-As instructions were updated once the EP had already begun,
-Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
-```
-
 # Installation
 
 1. Clone the repository or download the source code.
@@ -92,7 +81,7 @@ GRANT ALL PRIVILEGES ON stocksalesdb.* TO 'admin'@'localhost';
 
 # Configuration
 
-1. Open the `.env` file and update the following configuration variables according to your setup:
+1. Open/Create the `.env` file and provide the following configuration variables:
 
 ```javascript
    - HOST= "localhost" //The host name of your MySQL database server.
@@ -111,6 +100,17 @@ GRANT ALL PRIVILEGES ON stocksalesdb.* TO 'admin'@'localhost';
 
 ```bash
 npm install
+```
+
+# Unit testing
+
+1. There is provided an test, that can be run with the command `npm test`, keep in mind that this test must be run on an empty/unpopulated database.
+
+- During the final days of the exam our test task was changed, but they allowed us to keep our old tests so the tests provided here will test admin endpoints with an admin user. See here:
+
+```
+As instructions were updated once the EP had already begun,
+Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
 ```
 
 # Running the Application
