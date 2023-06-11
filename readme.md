@@ -91,8 +91,8 @@ NB! `.env` file is not included and `.gitignored` due to best practices and secu
    - DATABASE_NAME= "StockSalesDB" //The name of the MySQL database you created for your project.
    - ADMIN_USERNAME= "admin" //The username for accessing the MySQL database.
    - ADMIN_PASSWORD= "P@ssw0rd" //The password for accessing the MySQL database.
-   - DIALECT= "mysql"
-   - JWT_SECRET=thisIsSoVerySecret1337
+   - DIALECT= "mysql" //The dialect of the DB
+   - JWT_SECRET=thisIsSoVerySecret1337 //This is your token secret
 ```
 
 # Installing Dependencies
