@@ -20,7 +20,7 @@ router.get('/', onlyAdmin, async (req, res) => {
           'name', items.name,
           'quantity', orderItems.quantity,
           'price', items.price,
-          'total price', orders.total
+          'total price', orders.totalPrice
         )
       ) AS items
     FROM
