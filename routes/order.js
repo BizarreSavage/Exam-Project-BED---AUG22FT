@@ -70,7 +70,7 @@ router.post('/:id', userAndAdmin, async (req, res) => {
     const order = await Order.create({
       userId: req.user.id,
       status: 'In Process',
-      total: discountedPrice, 
+      totalPrice: discountedPrice, 
     });
 
     const orderItem = await OrderItem.create({
