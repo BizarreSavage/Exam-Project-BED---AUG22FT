@@ -81,7 +81,9 @@ GRANT ALL PRIVILEGES ON stocksalesdb.* TO 'admin'@'localhost';
 
 # Configuration
 
-1. Open/Create the `.env` file and provide the following configuration variables:
+NB! .env file is not included and .gitignored due to best practices and security.
+
+1. Create the `.env` file and provide the following configuration variables:
 
 ```javascript
    - HOST= "localhost" //The host name of your MySQL database server.
@@ -123,9 +125,9 @@ npm start
 
 2. The application will be running at `http://localhost:3000` by default.
 
-3. Use "Postman" or some other tool to send a `post` request to `/setup` to populate the database and create the admin user.
+3. Use "Postman" or some other tool to send a `post` request to `/setup` to populate the database and create the admin user.(If you ran `npm test` first, then database is already populated.)
 
-Congratulations! You have successfully installed and started the back end of your project. You can now proceed with testing the API endpoints using Postman or any other HTTP client.
+Congratulations! You have successfully installed and started the back end of your project.
 
 ## Dependencies
 
