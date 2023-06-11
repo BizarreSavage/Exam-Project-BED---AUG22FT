@@ -81,7 +81,14 @@ Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
 # Setting Up the Database
 
 1. Install MySQL on your system if you haven't already. You can download it from the official MySQL website: [MySQL](https://dev.mysql.com/downloads)
-2. Create a new MySQL database for your project.
+2. Create a new MySQL database for your project. For this project I used these commands in MySQL:
+
+```javascript
+create database stocksalesdb;
+CREATE USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'P@ssw0rd';
+ALTER USER 'admin'@'localhost' IDENTIFIED WITH mysql_native_password BY 'P@ssw0rd';
+GRANT ALL PRIVILEGES ON stocksalesdb.* TO 'admin'@'localhost';
+```
 
 # Configuration
 
@@ -91,10 +98,10 @@ Test 3 and Test 8 can use either the Admin or a User - both are acceptable.
    - HOST= "localhost" //The host name of your MySQL database server.
    - PORT= "3000" //The port number of your MySQL database server.
    - DATABASE_NAME= "StockSalesDB" //The name of the MySQL database you created for your project.
-   - ADMIN_USERNAME= "root" //The username for accessing the MySQL database.
-   - ADMIN_PASSWORD= "neiseida" //The password for accessing the MySQL database.
+   - ADMIN_USERNAME= "admin" //The username for accessing the MySQL database.
+   - ADMIN_PASSWORD= "P@ssw0rd" //The password for accessing the MySQL database.
    - DIALECT= "mysql"
-   - JWT_SECRET=your-secret
+   - JWT_SECRET=thisIsSoVerySecret1337
 ```
 
 # Installing Dependencies
