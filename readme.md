@@ -83,7 +83,7 @@ GRANT ALL PRIVILEGES ON stocksalesdb.* TO 'admin'@'localhost';
 
 NB! .env file is not included and .gitignored due to best practices and security.
 
-1. Create the `.env` file and provide the following configuration variables:
+1. Create the `.env` file in the root of your folder and provide the following configuration variables:
 
 ```javascript
    - HOST= "localhost" //The host name of your MySQL database server.
