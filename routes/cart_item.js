@@ -6,7 +6,6 @@ const userAndAdmin = require('../middlewares/userAndAdmin');
 
 // Add item to the user's cart
 router.post('/', userAndAdmin, async (req, res) => {
-
   if (!req.user || !req.user.cart) {
     return res.status(401).json({ message: 'You need to be logged in to add items to your cart' });
   }
@@ -24,12 +23,24 @@ router.post('/', userAndAdmin, async (req, res) => {
       return res.status(400).json({ message: 'Not enough stock for this item' });
     }
 
-    const cartItem = await CartItem.create({
-      cartId: req.user.cart.id,
-      itemId,
-      price: item.price,
-      quantity,
+    let cartItem = await CartItem.findOne({
+      where: {
+        cartId: req.user.cart.id,
+        itemId,
+      },
     });
+
+    if (cartItem) {
+      cartItem.quantity += quantity;
+      await cartItem.save();
+    } else {
+      cartItem = await CartItem.create({
+        cartId: req.user.cart.id,
+        itemId,
+        price: item.price,
+        quantity,
+      });
+    }
 
     return res.json(cartItem);
   } catch (error) {
